@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="save_update_mentor/{{ data.mentorID }}" method="POST">
+    {% csrf_token %}
+    Enter mentor id: <input type="text" name="mentorID" value="{{ data.mentorID }} " disable="false"><br><br>
+    Enter mentor name: <input type="text" name="mentorName" value="{{ data.mentorName }}"><br><br>
+    Enter mentor room number: <input type="text" name="roomNo" value="{{ data.roomNo }}"><br><br>
+    <input type="submit" value="SUBMIT"><br><br>
+</form>
+<br><br>
+<a href="/mentor/">Back</a>
+</body>
+</html>

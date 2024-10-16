@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor</title>
+</head>
+<body>
+    <h1>Mentor</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        Enter mentor id: <input type="text" name="mentorID"><br><br>
+        Enter mentor name: <input type="text" name="mentorName"><br><br>
+        Enter mentor room number: <input type="text" name="roomNo"><br><br>
+        <input type="submit" value="SUBMIT"><br><br>
+    </form>
+
+    {{message}}<br><br>
+    <a href="{% url 'index' %}">Back to Homepage</a><br>
+
+    
+    <table border="1" style="margin-bottom: 20px;">
+        <tr>
+            <th>mentorID</th>
+            <th>mentorName</th>
+            <th>roomNo</th>
+            <th>update?</th>
+            <th>delete?</th>
+        </tr>
+
+        {% for data in mymentors %}
+        <tr>
+            <td>{{ data.mentorID }}</td>
+            <td>{{ data.mentorName }}</td>
+            <td>{{ data.roomNo }}</td>
+            <td><a href="update_mentor/{{data.mentorID}}">Update</td>
+            <td><a href="delete_mentor/{{data.mentorID}}">Delete</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
